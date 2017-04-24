@@ -186,9 +186,10 @@ class NetteDatabaseDataSource implements IDataSource
 	{
 		$sql = $this->queryHelper->getCountSelect();
 		$query = $this->query($sql);
-		$rowsCount = $query->getPdoStatement()->rowCount();
+		$rowsCount = $query->getRowCount();
 		switch ($rowsCount){
 			case 0;
+			case null:
 				return 0;
 			case 1:
 				return $query->fetch()->count;
