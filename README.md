@@ -1,79 +1,52 @@
-[![Build Status](https://travis-ci.org/contributte/datagrid-nette-database-data-source.svg?branch=master)](https://travis-ci.org/contributte/datagrid-nette-database-data-source)
-[![Latest Stable Version](https://poser.pugx.org/contributte/datagrid-nette-database-data-source/v/stable)](https://packagist.org/packages/contributte/datagrid-nette-database-data-source)
-[![License](https://poser.pugx.org/contributte/datagrid-nette-database-data-source/license)](https://packagist.org/packages/contributte/datagrid-nette-database-data-source)
-[![Total Downloads](https://poser.pugx.org/contributte/datagrid-nette-database-data-source/downloads)](https://packagist.org/packages/contributte/datagrid-nette-database-data-source)
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/ublaboo/help)
+![](https://heatbadger.now.sh/github/readme/contributte/datagrid-nette-database-data-source/)
 
-# Nette\Database data source for Nette\Database
+<p align=center>
+  <a href="https://travis-ci.org/contributte/datagrid-nette-database-data-source"><img src="https://img.shields.io/travis/contributte/datagrid-nette-database-data-source.svg?style=flat-square"></a>
+  <a href="https://packagist.org/packages/ublaboo/datagrid-nette-database-data-source"><img src="https://badgen.net/packagist/dm/ublaboo/datagrid-nette-database-data-source"></a>
+  <a href="https://packagist.org/packages/ublaboo/datagrid-nette-database-data-source"><img src="https://badgen.net/packagist/v/ublaboo/datagrid-nette-database-data-source"></a>
+</p>
+<p align=center>
+  <a href="https://packagist.org/packages/ublaboo/datagrid-nette-database-data-source"><img src="https://badgen.net/packagist/php/ublaboo/datagrid-nette-database-data-source"></a>
+  <a href="https://github.com/contributte/datagrid-nette-database-data-source"><img src="https://badgen.net/github/license/contributte/datagrid-nette-database-data-source"></a>
+  <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
+  <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
+  <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
+</p>
 
-Utility that makes possible to use Nette\Database native query with Ublaboo\DataGrid
-
-If you are using `Nette\Database` instead of `Nette\Database\Table` (probably because of the need to create more complex queries), there was an option to call `ResultSet::fetchAll()` and operate with that array.
-
-But why should you fetch `all` data from the database to show just a few of them?
-
-## Installation
-
-Download this package using composer:
-
-```
-composer require ublaboo/datagrid-nette-database-data-source
-```
+<p align=center>
+Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
+</p>
 
 ## Usage
 
-```php
-/**
- * @var Nette\Database\Context
- * @inject
- */
-public $ndb;
+To install latest version of `contributte/datagrid-nette-database-data-source` use [Composer](https://getcomposer.com).
 
-
-public function createComponentNetteGrid($name)
-{
-	/**
-	 * @type Ublaboo\DataGrid\DataGrid
-	 */
-	$grid = new DataGrid($this, $name);
-
-	$query = 
-		'SELECT p.*, GROUP_CONCAT(v.code SEPARATOR ", ") AS variants
-		FROM product p
-		LEFT JOIN product_variant p_v
-			ON p_v.product_id = p.id
-		WHERE p.deleted IS NULL
-			AND (product.status = ? OR product.status = ?)';
-
-	$params = [1, 2];
-
-	/**
-	 * @var Ublaboo\NetteDatabaseDataSource\NetteDatabaseDataSource
-	 * 
-	 * @param Nette\Database\Context
-	 * @param $query
-	 * @param $params|NULL
-	 */
-	$datasource = new NetteDatabaseDataSource($this->ndb, $query, $params);
-
-	$grid->setDataSource($datasource);
-
-	$grid->addColumnText('name', 'Name')
-		->setSortable();
-
-	$grid->addColumnNumber('id', 'Id')
-		->setSortable();
-
-	$grid->addColumnDateTime('created', 'Created');
-
-	$grid->addFilterDateRange('created', 'Created:');
-
-	$grid->addFilterText('name', 'Name and id', ['id', 'name']);
-
-	$grid->addFilterSelect('status', 'Status', ['' => 'All', 1 => 'Online', 0 => 'Ofline', 2 => 'Standby']);
-
-	/**
-	 * Etc
-	 */
-}
 ```
+composer install contributte/datagrid-nette-database-data-source
+```
+
+## Documentation
+
+For details on how to use this package, check out our [documentation](.docs).
+
+## Versions
+
+| State  | Version  - | Branch | PHP  |
+|--------|------------|--------|------|
+| dev    | dev-master | master | ^7.2 |
+| stable | ~2.0.0     | master | ^7.2 |
+| stable | ~1.1.0     | master | ^5.6 |
+
+
+## Development
+
+See [how to contribute](https://contributte.org) to this package. This package is currently maintained by these authors.
+
+<a href="https://github.com/paveljanda">
+    <img width="80" height="80" src="https://avatars0.githubusercontent.com/u/1488874?v=3&s=80">
+</a>
+
+-----
+
+Consider to [support](https://contributte.com/partners) **contributte** development team.
+Also thank you for using this package.
