@@ -33,7 +33,7 @@ For details on how to use this package, check out our [documentation](.docs).
 
 | State  | Version  - | Branch | PHP  |
 |--------|------------|--------|------|
-| dev    | dev-master | master | ^7.2 |
+| dev    | ~3.0.0     | master | ^7.2 |
 | stable | ~2.0.0     | master | ^7.2 |
 | stable | ~1.1.0     | master | ^5.6 |
 
