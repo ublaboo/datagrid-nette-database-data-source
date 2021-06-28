@@ -1,53 +1,63 @@
 {
-	"name": "ublaboo/datagrid-nette-database-data-source",
-	"type": "library",
-	"description": "Utility that makes possible to use Nette\\Database native query with Ublaboo\\DataGrid",
-	"keywords": ["datagrid", "grid", "nette", "ublaboo", "database", "data", "source"],
-	"homepage": "https://ublaboo.org/datagrid-nette-database-data-source",
-	"license": ["MIT"],
-	"support": {
-		"issues": "https://github.com/ublaboo/datagrid-nette-database-data-source/issues"
-	},
-	"authors": [
-		{
-			"name": "Pavel Janda",
-			"homepage": "http://paveljanda.com"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"Ublaboo\\NetteDatabaseDataSource\\": "src/"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"Ublaboo\\NetteDatabaseDataSource\\Tests\\": "tests"
-		}
-	},
-	"require": {
-		"php": "^7.2",
-		"nette/database" : "^3.0",
-		"ublaboo/datagrid" : "^6.0",
-		"greenlion/php-sql-parser" : "^4.2"
-	},
-	"require-dev": {
-		"nette/tester": "^2.2",
-		"tracy/tracy": "^2.6",
-		"mockery/mockery" : "^1.2",
-		"phpstan/phpstan": "^0.11",
-		"phpstan/phpstan-strict-rules": "^0.11",
-		"ninjify/coding-standard": "^0.9"
-	},
-	"prefer-stable": true,
-	"minimum-stability": "dev",
-	"scripts": {
-		"phpstan": "vendor/phpstan/phpstan/bin/phpstan analyse -c vendor/phpstan/phpstan-strict-rules/rules.neon src --level 7",
-		"phpcs": "vendor/bin/phpcs --standard=vendor/ninjify/coding-standard/ruleset-gamee.xml --extensions=php,phpt --tab-width=4 --ignore=temp -sp src tests",
-		"phpcsfix": "vendor/bin/phpcbf --standard=vendor/ninjify/coding-standard/ruleset-gamee.xml --extensions=php,phpt --tab-width=4 --ignore=temp -sp src tests"
-	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "3.0.x-dev"
-		}
-	}
+  "name": "ublaboo/datagrid-nette-database-data-source",
+  "type": "library",
+  "description": "Utility that makes possible to use Nette\\Database native query with Ublaboo\\DataGrid",
+  "keywords": [
+    "datagrid",
+    "grid",
+    "nette",
+    "ublaboo",
+    "database",
+    "data",
+    "source"
+  ],
+  "homepage": "https://ublaboo.org/datagrid-nette-database-data-source",
+  "license": [
+    "MIT"
+  ],
+  "support": {
+    "issues": "https://github.com/ublaboo/datagrid-nette-database-data-source/issues"
+  },
+  "authors": [
+    {
+      "name": "Pavel Janda",
+      "homepage": "http://paveljanda.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ublaboo\\NetteDatabaseDataSource\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ublaboo\\NetteDatabaseDataSource\\Tests\\": "tests"
+    }
+  },
+  "require": {
+    "php": "^7.2",
+    "nette/database": "^3.0",
+    "ublaboo/datagrid": "^6.0",
+    "greenlion/php-sql-parser": "^4.2"
+  },
+  "require-dev": {
+    "nette/tester": "^2.2",
+    "tracy/tracy": "^2.6",
+    "mockery/mockery": "^1.2",
+    "phpstan/phpstan": "^0.11",
+    "phpstan/phpstan-strict-rules": "^0.11",
+    "ninjify/coding-standard": "^0.9"
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "scripts": {
+    "phpstan": "vendor/phpstan/phpstan/bin/phpstan analyse -c vendor/phpstan/phpstan-strict-rules/rules.neon src --level 7",
+    "phpcs": "vendor/bin/phpcs --standard=vendor/ninjify/coding-standard/ruleset-gamee.xml --extensions=php,phpt --tab-width=4 --ignore=temp -sp src tests",
+    "phpcsfix": "vendor/bin/phpcbf --standard=vendor/ninjify/coding-standard/ruleset-gamee.xml --extensions=php,phpt --tab-width=4 --ignore=temp -sp src tests"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "3.0.x-dev"
+    }
+  }
 }
